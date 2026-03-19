@@ -101,4 +101,4 @@ This isn’t a finished product.
 
 It’s a starting point.
 
-And more importantly—it works.
+And more importantly, it works!
