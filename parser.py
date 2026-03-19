@@ -1,4 +1,8 @@
 #Legal Document Praser - Start of my legal tech jounery
+
+"""
+Below is the code for the previous lesson
+
 contracts = [
     {"parties": "Acme Corp", "value": 48500, "signed": True},
     {"parties": "Henderson & Sons", "value": 72000, "signed": False},
@@ -14,3 +18,19 @@ for contract in contracts:
         print(str(contract["parties"]) + "- LOW VALUE, filled")
     else:
         print(str(contract["parties"]) + "- pending")
+"""
+
+lines = [
+    "  PARTY A:   Smithfield Legal Ltd  ",
+    "  party b: crown holdings  ",
+    "  DATE :  15/06/2024  ",
+    "  Jurisdiction: England and Wales  ",
+    "  signature block follows  ",
+]
+for line in lines:
+    line = line.strip()
+    if ":" in line:
+        parts = line.split(":")
+        key = parts[0].strip().lower()
+        value = parts[1].strip().title()
+        print(f"{key}: {value}")
