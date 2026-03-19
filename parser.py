@@ -1,7 +1,7 @@
 #Legal Document Praser - Start of my legal tech jounery
 
 """
-Below is the code for the previous lesson
+Below is the code from a the previous lesson
 
 contracts = [
     {"parties": "Acme Corp", "value": 48500, "signed": True},
