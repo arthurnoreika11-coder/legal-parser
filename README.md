@@ -6,7 +6,7 @@
 
 ## The Idea
 
-Lawyers spend a surprising amount of time doing one thing:
+Recently, I've been freelancing for my mum's consultancy (Regulogix, in partnership with Nomius). I've been drafting the AI prompts, spending a surprising amount of time doing one thing:
 
 Reading documents and extracting key information.
 
