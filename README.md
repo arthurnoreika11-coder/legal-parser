@@ -1,5 +1,4 @@
 # Legal Document Parser
-# Legal Document Parser
 
 *A small step into legal tech*
 
