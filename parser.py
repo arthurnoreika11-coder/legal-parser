@@ -1,9 +1,16 @@
 #Legal Document Praser - Start of my legal tech jounery
-contract = [
-    {"parties": "Acme Corp", "value": 15000, "signed": True},
-    {"parties": "Henderson & Sons", "value": 27000, "signed": False},
-    {"parties": "Smith LLC", "value": 500, "signed": True}
+contracts = [
+    {"parties": "Acme Corp", "value": 48500, "signed": True},
+    {"parties": "Henderson & Sons", "value": 72000, "signed": False},
+    {"parties": "Smith LLC", "value": 15000, "signed": True}
 ]
 
-totalValue = contract[0]["value"] + contract[1]["value"] + contract[2]["value"]
-print(str(len(contract)) + " contracts with a total value of $" + str(totalValue) + ". The first contract is with " + contract[0]["parties"] + ".")
+totalValue = contracts[0]["value"] + contracts[1]["value"] + contracts[2]["value"]
+
+for contract in contracts:
+    if contract["value"] > 50000 and contract["signed"]:
+        print(str(contract["parties"]) + "- HIGH VALUE, filled")
+    elif contract["signed"]:
+        print(str(contract["parties"]) + "- LOW VALUE, filled")
+    else:
+        print(str(contract["parties"]) + "- pending")
