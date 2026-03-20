@@ -13,7 +13,6 @@ lines = [
     "  signature block follows  ",
 ]
 
-#Lesson 1: Basic Data Structures for Legal Information
 """
 totalValue = contracts[0]["value"] + contracts[1]["value"] + contracts[2]["value"]
 
@@ -26,7 +25,6 @@ for contract in contracts:
         print(str(contract["parties"]) + "- pending")
 """
 
-#Lesson 2: Parsing Legal Documents - Extracting Key Information
 """
 for line in lines:
     line = line.strip()
@@ -38,7 +36,6 @@ for line in lines:
 
 """
 
-#Lesson 3:
 def clean_line(line):
     return line.strip().lower()
 
@@ -59,5 +56,12 @@ def parse_document(lines):
             parsed_data[key] = value
     return parsed_data
 
-parsed_document = parse_document(lines)
-print(parsed_document)
+try:
+    with open("sample_contract.txt", "r") as file:
+        document_lines = file.readlines()
+        parsed_document = parse_document(document_lines)
+        print(parsed_document)
+except FileNotFoundError:
+    print("The file 'sample_contract.txt' was not found.")
+
+
