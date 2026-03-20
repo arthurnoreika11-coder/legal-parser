@@ -1,10 +1,8 @@
 LEGAL SERVICES AGREEMENT
 
-Party A:   Smithfield Legal Ltd
-Party B:   Crown Holdings
-Date:   15/06/2024
-Jurisdiction:   England and Wales
-Value:   72000
+This agreement is entered into between Smithfield Legal Ltd (hereinafter "Party A")
+and Crown Holdings (hereinafter "Party B") on 15/06/2024.
 
-The parties agree to the terms set forth in this agreement.
-Signature block follows
+The total value of this agreement is GBP 72,000.
+Jurisdiction: England and Wales
+Payment terms: 30 days
