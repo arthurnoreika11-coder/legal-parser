@@ -1,14 +1,20 @@
 #Legal Document Praser - Start of my legal tech
-
-"""
-Below is the code from the previous lesson
-
 contracts = [
     {"parties": "Acme Corp", "value": 48500, "signed": True},
     {"parties": "Henderson & Sons", "value": 72000, "signed": False},
     {"parties": "Smith LLC", "value": 15000, "signed": True}
 ]
 
+lines = [
+    "  PARTY A:   Smithfield Legal Ltd  ",
+    "  party b: crown holdings  ",
+    "  DATE :  15/06/2024  ",
+    "  Jurisdiction: England and Wales  ",
+    "  signature block follows  ",
+]
+
+#Lesson 1: Basic Data Structures for Legal Information
+"""
 totalValue = contracts[0]["value"] + contracts[1]["value"] + contracts[2]["value"]
 
 for contract in contracts:
@@ -20,13 +26,8 @@ for contract in contracts:
         print(str(contract["parties"]) + "- pending")
 """
 
-lines = [
-    "  PARTY A:   Smithfield Legal Ltd  ",
-    "  party b: crown holdings  ",
-    "  DATE :  15/06/2024  ",
-    "  Jurisdiction: England and Wales  ",
-    "  signature block follows  ",
-]
+#Lesson 2: Parsing Legal Documents - Extracting Key Information
+"""
 for line in lines:
     line = line.strip()
     if ":" in line:
@@ -34,3 +35,29 @@ for line in lines:
         key = parts[0].strip().lower()
         value = parts[1].strip().title()
         print(f"{key}: {value}")
+
+"""
+
+#Lesson 3:
+def clean_line(line):
+    return line.strip().lower()
+
+def parse_line(line):
+    if ":" in line:
+        parts = line.split(":")
+        key = parts[0].strip().lower()
+        value = parts[1].strip().title()
+        return key, value
+    return None, None
+
+def parse_document(lines):
+    parsed_data = {}
+    for line in lines:
+        cleaned_line = clean_line(line)
+        key, value = parse_line(cleaned_line)
+        if key and value:
+            parsed_data[key] = value
+    return parsed_data
+
+parsed_document = parse_document(lines)
+print(parsed_document)
