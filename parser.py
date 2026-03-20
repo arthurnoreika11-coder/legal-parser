@@ -1,6 +1,7 @@
 #Legal Document Praser - Start of my legal tech
 import re
-
+import json
+import csv
 
 """
 contracts = [
@@ -71,12 +72,6 @@ except FileNotFoundError:
     print("The file 'sample_contract.txt' was not found.")
 """
 
-def parse_document(document):
-    print(extract_party_a(document))
-    print(extract_party_b(document))
-    print(extract_date(document))
-    print(extract_value(document))
-
 def extract_party_a(document):
     # Look for the Party A name in a clause like:
     # between <Party A Name> (hereinafter "Party A") and <Party B Name> (hereinafter "Party B")
@@ -110,10 +105,27 @@ def extract_value(document):
     match = re.search(r"GBP \s*(.+)", document, re.IGNORECASE)
     return match.group(1).strip() if match else None
 
+def save_json(data, filename):
+    with open(filename, "w") as json_file:
+        json.dump(data, json_file, indent=4)
+
+def save_csv(data, filename):
+    with open(filename, "w", newline="") as csv_file:
+        writer = csv.writer(csv_file)
+        writer.writerow(data.keys())
+        writer.writerow(data.values())
+
 try:
     with open("sample_contract.txt", "r") as file:
         document = file.read()
-        parse_document(document)
+        data = {
+            "party_a": extract_party_a(document),
+            "party_b": extract_party_b(document),
+            "date": extract_date(document),
+            "value": extract_value(document),
+        }
+        save_json(data, "parsed_contract.json")
+        save_csv(data, "parsed_contract.csv")
 except FileNotFoundError:
     print("The file 'sample_contract.txt' was not found.")
 
